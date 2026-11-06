@@ -1,0 +1,24 @@
+from __future__ import annotations
+from pathlib import Path
+import json
+import numpy as np
+import pandas as pd
+import yaml
+import matplotlib.pyplot as plt
+
+%matplotlib inline
+
+ROOT = next(p for p in [Path.cwd(), *Path.cwd().parents] if (p / "config.yaml").exists())
+CFG = yaml.safe_load((ROOT / "config.yaml").read_text(encoding="utf-8"))
+SEED = int(CFG["seed"])
+np.random.seed(SEED)
+
+def rp(*parts: str) -> Path:
+    """Resolve a repo-relative path (parts are path fragments under the repo root)."""
+    return ROOT.joinpath(*parts)
+
+BRAND_COLORS = {"OPPO": "#0072B2", "Realme": "#D55E00", "Samsung": "#009E73",
+                "Vivo": "#CC79A7", "Xiaomi": "#E69F00"}
+ALGO_COLORS = {"SARIMAX": "#0072B2", "RF": "#D55E00", "LSTM": "#009E73"}
+plt.rcParams.update({"figure.dpi": 110, "figure.figsize": (9, 4.5),
+                     "axes.grid": True, "grid.alpha": 0.3, "axes.titlesize": 12})

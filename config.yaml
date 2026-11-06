@@ -1,0 +1,55 @@
+# Parameter terpusat pipeline Bab III. Path relatif terhadap lokasi file ini.
+seed: 42
+
+paths:
+  raw_csv: data/raw/pos_transactions_raw.csv
+  interim: data/interim
+  processed: data/processed
+  models: models
+  figures: reports/figures
+  results: reports/results
+
+# --- Tahap 2 & 5 (agregasi & fitur) ---
+train_ratio: 0.8          # D3 -> 147 latih / 37 uji pada 184 minggu
+seasonal_period: 52       # D6 (mingguan tahunan)
+lags: 8                   # panjang lag/window default (L)
+rolling_windows: [4, 8]
+fourier_harmonics: 2      # K harmonik Fourier musiman m=52 -> sin/cos_1..K (D6)
+
+# --- Tahap 5: varian fitur (ablation Google Trends, D5) ---
+# Wildcard "*" = cocok-awalan terhadap kolom fitur nyata. Fourier di KEDUA varian
+# (bukan bagian ablation GT); hanya gt_index yang membedakan baseline vs gt.
+feature_variants:
+  baseline: ["lag_*", "roll_*", "weekofyear", "month", "is_ramadan",
+             "is_lebaran_window", "is_harbolnas", "year_trend", "fourier_*"]
+  gt:       ["lag_*", "roll_*", "weekofyear", "month", "is_ramadan",
+             "is_lebaran_window", "is_harbolnas", "year_trend", "fourier_*", "gt_index"]
+
+# --- Tahap 3: Google Trends (D5) ---
+trends_geo: ID
+trends_timeframe: "2022-01-01 2025-06-30"
+keywords_by_brand:
+  Xiaomi: ["Xiaomi Redmi", "Xiaomi HP"]
+  OPPO: ["OPPO HP"]
+  Samsung: ["Samsung HP", "Samsung Galaxy"]
+  Realme: ["Realme HP"]
+  Vivo: ["Vivo HP"]
+
+# --- Tahap 8: optimasi inventori (D8) ---
+service_level: 0.95       # z ~ 1.645
+lead_time_weeks: 2
+holding_cost: 0.02        # fraksi harga/unit/minggu (asumsi; sensitivitas di Tahap 8)
+review_period_weeks: 1
+
+# --- Tahap 6: hyperparameter ---
+random_forest:
+  n_estimators: [200, 500]
+  max_depth: [null, 10, 20]
+  max_features: ["sqrt", 0.5]
+  min_samples_leaf: [1, 2]
+lstm:
+  units: 64
+  dropout: 0.2
+  epochs: 200
+  batch_size: 16
+  patience: 10

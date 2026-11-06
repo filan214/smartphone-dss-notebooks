@@ -1,0 +1,23 @@
+group,model1,model2,dm_stat,p_value,n,significant,better
+antar_algoritma,SARIMAX(gt),RF(gt),6.022728569030374,2.7024600819949588e-09,740,True,RF(gt)
+antar_algoritma,SARIMAX(gt),LSTM(gt),3.591398759756824,0.0003506741806921608,740,True,LSTM(gt)
+antar_algoritma,RF(gt),LSTM(gt),-4.482377350801842,8.553146536003703e-06,740,True,RF(gt)
+ablation_gt,SARIMAX(baseline),SARIMAX(gt),1.581342547584653,0.11422760909873966,740,False,tak signifikan
+ablation_gt,RF(baseline),RF(gt),2.4851823189979267,0.013168667284835341,740,True,RF(gt)
+ablation_gt,LSTM(baseline),LSTM(gt),1.636485649953742,0.10216375236282504,740,False,tak signifikan
+vs_naive,SARIMAX(gt),naive,-5.088728369758271,4.576302168292516e-07,740,True,SARIMAX(gt)
+vs_naive,SARIMAX(gt),snaive,-4.4320963582637605,1.0746820886175676e-05,740,True,SARIMAX(gt)
+vs_naive,RF(gt),naive,-9.302180711454268,1.5261655091902075e-19,740,True,RF(gt)
+vs_naive,RF(gt),snaive,-8.34431157346756,3.507370045522889e-16,740,True,RF(gt)
+vs_naive,LSTM(gt),naive,-7.828198870438847,1.7167342693757317e-14,740,True,LSTM(gt)
+vs_naive,LSTM(gt),snaive,-6.671185572882922,4.9749807458097794e-11,740,True,LSTM(gt)
+kandidat_akurasi,RF(gt),RF-Poisson(baseline),-0.7956466512891732,0.42649292919097914,740,False,tak signifikan
+kandidat_akurasi,RF(gt),RF-Poisson(gt),-3.801512660276792,0.00015567069702927713,740,True,RF(gt)
+kandidat_akurasi,RF(gt),HGB-Poisson(baseline),-7.203882844959524,1.4454676760029367e-12,740,True,RF(gt)
+kandidat_akurasi,RF(gt),HGB-Poisson(gt),-6.983102493504132,6.441071709706139e-12,740,True,RF(gt)
+kandidat_akurasi,RF(gt),Croston,0.6042839424930148,0.5458403469092981,740,False,tak signifikan
+kandidat_akurasi,RF(gt),TSB,0.7245131553411519,0.46898006719201624,740,False,tak signifikan
+kandidat_akurasi,RF(gt),Ensemble-mean(baseline),-2.568611406455273,0.010405944668091282,740,True,RF(gt)
+kandidat_akurasi,RF(gt),Ensemble-mean(gt),-1.7360613120459283,0.08296977578674142,740,False,tak signifikan
+kandidat_akurasi,RF(gt),Ensemble-invMAE(baseline),-2.019714834503163,0.04377341587647704,740,True,RF(gt)
+kandidat_akurasi,RF(gt),Ensemble-invMAE(gt),-1.4255783724862288,0.1544123194831144,740,False,tak signifikan

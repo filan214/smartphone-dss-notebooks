@@ -1,0 +1,3 @@
+algoritma,MAE_D1,MAE_Opsi3_rollup,MASE_Opsi3,dm_pvalue_D1_vs_Opsi3,kesimpulan,pct_SKU_direct_vs_fallback_per_gerai
+RF,1.3995,1.4085,0.7632,0.3452,tak berbeda signifikan (D1 dipertahankan),Toko_A: 4/15 direct (27%); Toko_B: 4/15 direct (27%); Toko_C: 2/15 direct (13%); Toko_D: 1/15 direct (7%)
+LSTM,1.54,1.4059,0.7631,0.0,Opsi 3 (per-SKU) signifikan lebih baik,Toko_A: 4/15 direct (27%); Toko_B: 4/15 direct (27%); Toko_C: 2/15 direct (13%); Toko_D: 1/15 direct (7%)

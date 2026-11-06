@@ -1,0 +1,12 @@
+candidate,MAE_mean,MASE_mean,dm_stat,p_value_vs_old_winner,signif_better_than_old,decision
+RF(gt) [pemenang lama],1.3995,0.7618,,,False,REFERENSI (pemenang Tahap 7)
+RF-Poisson(baseline),1.3904,0.7543,-0.7956,0.4265,False,tolak (tak berbeda signifikan)
+RF-Poisson(gt),1.417,0.7694,-3.8015,0.0002,False,tolak (signifikan LEBIH BURUK dari pemenang lama)
+HGB-Poisson(baseline),1.5435,0.8358,-7.2039,0.0,False,tolak (signifikan LEBIH BURUK dari pemenang lama)
+HGB-Poisson(gt),1.5443,0.8362,-6.9831,0.0,False,tolak (signifikan LEBIH BURUK dari pemenang lama)
+Croston,1.389,0.7514,0.6043,0.5458,False,tolak (tak berbeda signifikan)
+TSB,1.388,0.7503,0.7245,0.469,False,tolak (tak berbeda signifikan)
+Ensemble-mean(baseline),1.4561,0.7955,-2.5686,0.0104,False,tolak (signifikan LEBIH BURUK dari pemenang lama)
+Ensemble-mean(gt),1.444,0.7886,-1.7361,0.083,False,tolak (tak berbeda signifikan)
+Ensemble-invMAE(baseline),1.4449,0.7888,-2.0197,0.0438,False,tolak (signifikan LEBIH BURUK dari pemenang lama)
+Ensemble-invMAE(gt),1.4379,0.785,-1.4256,0.1544,False,tolak (tak berbeda signifikan)
